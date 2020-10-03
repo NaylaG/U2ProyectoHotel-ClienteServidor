@@ -12,15 +12,15 @@
             <!--<Image Margin="80,20,0,30"  Source="images/vivaaerobus.png" Width="80"></Image>-->
             <TextBlock Margin="80,20,0,30" FontSize="25" TextAlignment="Center" FontFamily="Dubai Medium">Reservaciones Hotel RedRoof</TextBlock>
         </WrapPanel>
-        <UniformGrid Margin="0,10,0,0" Columns="2" Rows="1">
+        <UniformGrid Margin="0,0,0,0" Columns="2" Rows="1">
 
             <UniformGrid.Resources>
             </UniformGrid.Resources>
-            <Grid Margin="0,0,0,0" >
+            <Grid>
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
-                        <Setter Property="Margin" Value="50,0,0,5"></Setter>
+                        
                         <Setter Property="Padding" Value="0,0,0,0"></Setter>
                         <Setter Property="FontSize" Value="18"></Setter>
                         <Setter Property="Background" Value="White"></Setter>
@@ -56,7 +56,12 @@
                 <TextBlock Grid.Row="3">Fecha salida:</TextBlock>
                 <TextBox Grid.Column="1"  Grid.Row="3"  x:Name="txtFechaSalida" Text="{Binding FechaSalida}"></TextBox>
                 <TextBlock Grid.Row="4">Tipo habitación:</TextBlock>
-                <TextBox Grid.Column="1"  Grid.Row="4"  x:Name="txtTipoHabitacion" Text="{Binding TipoHabitacion}"></TextBox>
+                <ComboBox Grid.Column="1"  Grid.Row="4"  x:Name="cmbTipoHabitacion" Text="{Binding TipoHabitacion}">
+                    <ComboBoxItem>SENCILLA</ComboBoxItem>
+                    <ComboBoxItem>DOBLE</ComboBoxItem>
+                    <ComboBoxItem>TRIPLE</ComboBoxItem>
+                    <ComboBoxItem>PRESIDENCIAL</ComboBoxItem>
+                </ComboBox>
                 <TextBlock Grid.Row="5">Número de personas:</TextBlock>
                 <TextBox Grid.Column="1"  Grid.Row="5"  x:Name="txtNumeroPersonas" Text="{Binding NumPersonas}"></TextBox>
             </Grid>

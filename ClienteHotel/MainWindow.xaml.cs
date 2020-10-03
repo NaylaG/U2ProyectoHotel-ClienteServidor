@@ -67,7 +67,7 @@ namespace ClienteHotel
                         txtClave.Text = txtFechaEntrada.Text =
                     txtFechaSalida.Text = txtNombre.Text =
                     txtNumeroPersonas.Text =
-                    txtTipoHabitacion.Text = "";
+                    cmbTipoHabitacion.Text = "";
                         cliente.Get();
                         Timer.Start();
                     }
@@ -94,7 +94,7 @@ namespace ClienteHotel
                 reservacion.FechaEntrada = txtFechaEntrada.Text;
                 reservacion.FechaSalida = txtFechaSalida.Text;
                 reservacion.Nombre = txtNombre.Text;
-                reservacion.TipoHabitacion = txtTipoHabitacion.Text;
+                reservacion.TipoHabitacion = cmbTipoHabitacion.Text;
                 reservacion.NumPersonas = txtNumeroPersonas.Text;
                 cliente.Editar(reservacion);
                 cliente.Get();
@@ -116,7 +116,7 @@ namespace ClienteHotel
                 txtClave.Text = txtFechaEntrada.Text = 
                     txtFechaSalida.Text = txtNombre.Text = 
                     txtNumeroPersonas.Text =
-                    txtTipoHabitacion.Text = "";
+                    cmbTipoHabitacion.Text = "";
             }
             catch (Exception m)
             {
@@ -142,7 +142,7 @@ namespace ClienteHotel
                 txtFechaSalida.Text = reservacion.FechaSalida;
                 txtNombre.Text = reservacion.Nombre;
                 txtNumeroPersonas.Text = reservacion.NumPersonas;
-                txtTipoHabitacion.Text = reservacion.TipoHabitacion;
+                cmbTipoHabitacion.Text = reservacion.TipoHabitacion;
 
             }
         }
