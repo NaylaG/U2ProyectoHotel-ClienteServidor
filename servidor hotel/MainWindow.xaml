@@ -5,17 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:servidor_hotel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+        </Style>
 
-    <DataGrid ItemsSource="{Binding Huespedes.Huespedes}" IsReadOnly="True" AutoGenerateColumns="False"  >
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="Clave" Binding="{Binding ClaveReservacion}"></DataGridTextColumn>
-            <DataGridTextColumn Header="Nombre"   Binding="{Binding Nombre}"></DataGridTextColumn>
-            <DataGridTextColumn Header="Fecha de entrada"  Binding="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DataGridTextColumn>
-            <DataGridTextColumn Header="Fecha de salida"   Binding="{Binding FechaSalida, StringFormat=\{0:d\}}"></DataGridTextColumn>
-            <DataGridTextColumn Header="Tipo de habitación"   Binding="{Binding TipoHabitacion}"></DataGridTextColumn>
-            <DataGridTextColumn Header="Numer de personas"   Binding="{Binding NumPersonas}"></DataGridTextColumn>
-        </DataGrid.Columns>
-    </DataGrid>
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+
+            <Setter Property="Background" Value="#C55E5E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Arial"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Background="#FFFFDFC5">
+        <DockPanel DockPanel.Dock="Top" Background="#FF340303" Height="120">
+            <Image Source="images/logo.png" Margin="10"></Image>
+            <!--<Label Foreground="White">Reservaciones</Label>-->
+        </DockPanel>
+        <DataGrid ItemsSource="{Binding Huespedes.Huespedes}" Background="White"   
+                          AlternatingRowBackground="#FFF5F4F0"  Style="{DynamicResource DataGridStyle1}" 
+                          RowBackground="White" AutoGenerateColumns="False"  CanUserAddRows="False" 
+                           ColumnHeaderHeight="30"  CanUserReorderColumns="False"
+                          CanUserResizeColumns="False" CanUserResizeRows="False" IsReadOnly="True"  Margin="60,30,60,30" >
+           
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Clave" Binding="{Binding ClaveReservacion}" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nombre"   Binding="{Binding Nombre}" Width="260"></DataGridTextColumn>
+                <DataGridTextColumn Header="Fecha de entrada"  Binding="{Binding FechaEntrada, StringFormat=\{0:d\}}" Width="125"></DataGridTextColumn>
+                <DataGridTextColumn Header="Fecha de salida"   Binding="{Binding FechaSalida, StringFormat=\{0:d\}}" Width="125"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tipo de habitación"   Binding="{Binding TipoHabitacion}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn Header="Numer de personas"   Binding="{Binding NumPersonas}" Width="125"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 
 </Window>
