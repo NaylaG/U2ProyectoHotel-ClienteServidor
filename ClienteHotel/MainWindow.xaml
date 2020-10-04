@@ -40,10 +40,12 @@
                 <Style TargetType="Button">
 
                     <Setter Property="BorderBrush" Value="Gray"></Setter>
-                    <Setter Property="Background" Value="White"></Setter>
+                    <Setter Property="Background" Value="#FFF3B9A3"></Setter>
                     <Setter Property="BorderThickness" Value="1"></Setter>
                     <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
                     <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Height" Value="30"></Setter>
+                    <Setter Property="FontSize" Value="13"></Setter>
                     <!--<Setter Property="Margin" Value="10,0,0,0"></Setter>-->
                 </Style>
             </StackPanel.Resources>

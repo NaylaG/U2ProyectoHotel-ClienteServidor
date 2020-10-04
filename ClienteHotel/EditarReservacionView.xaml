@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteHotel"
         mc:Ignorable="d"
-        Title="EditarReservacionView" Height="550" Width="450" Background="Green">
+        Title="EditarReservacionView" Height="550" Width="450" >
    
         
         <!--<Button Name="btnEditar" Click="btnEditar_Click">EDITAR</Button>-->
-    <DockPanel Background="#FFFFDFC5">
+    <DockPanel Background="#FFFFEBDB">
         <WrapPanel Background="#FF340303" DockPanel.Dock="Top">
             <Image   Source="images/logo.png" Height="60" Margin="5"></Image>
             <TextBlock VerticalAlignment="Center" FontSize="20" Margin="5,30" TextAlignment="Center" FontWeight="Light" Foreground="White" FontFamily="Arial">EDITAR RESERVACION</TextBlock>
         </WrapPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
-            <Button  Name="btnEditar" Click="btnEditar_Click" Margin="50,20" Background="#C55E5E" Foreground="White" Height="30" Width="100">EDITAR</Button>
+            <Button  Name="btnEditar" Click="btnEditar_Click" Margin="50,20" Background="#C55E5E"  FontWeight="DemiBold" Foreground="White" Height="30" Width="100">EDITAR</Button>
         </StackPanel>
 
         <StackPanel  Margin="40,20">

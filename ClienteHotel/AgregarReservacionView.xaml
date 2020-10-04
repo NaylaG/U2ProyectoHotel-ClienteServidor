@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteHotel"
         mc:Ignorable="d"
-        Title="AgregarReservacionView" Height="550" Width="450" Background="Pink">
+        Title="AgregarReservacionView" Height="550" Width="450" Background="#FFFDE0E5">
     <DockPanel>
         <WrapPanel Background="#FF340303" DockPanel.Dock="Top">
             <Image   Source="images/logo.png" Height="60" Margin="5"></Image>
             <TextBlock VerticalAlignment="Center" FontSize="20" Margin="5,30" TextAlignment="Center" FontWeight="Light" Foreground="White" FontFamily="Arial">AGREGAR RESERVACION</TextBlock>
         </WrapPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
-            <Button Name="btnAgregar" Click="btnAgregar_Click" Margin="50,20" Background="#C55E5E" Foreground="White" Height="30" Width="100">AGREGAR</Button>
+            <Button Name="btnAgregar" Click="btnAgregar_Click" Margin="50,20" FontWeight="DemiBold" Background="#C55E5E" Foreground="White" Height="30" Width="100">AGREGAR</Button>
         </StackPanel>
      
         <StackPanel  Margin="40,20">
