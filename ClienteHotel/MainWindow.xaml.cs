@@ -23,19 +23,23 @@ namespace ClienteHotel
     {
         HotelCliente cliente = new HotelCliente();
         DatosReservacion reservacion = new DatosReservacion();
-        DatosReservacion reservacion2 = new DatosReservacion();
+        //DatosReservacion reservacion2 = new DatosReservacion();
         private int time = 0;
         private DispatcherTimer Timer;
         public MainWindow()
         {
             InitializeComponent();
-            cliente.Get();
+            //cliente.Get();
+            this.DataContext = reservacion;
             cliente.AlHaberMovimiento += Cliente_AlHaberMovimiento;
             Timer = new DispatcherTimer();
             Timer.Interval = new TimeSpan(0, 0, 5);
             Timer.Tick += Timer_Tick;
             Timer.Start();
-            btnAgregar.IsEnabled = false;
+            //btnAgregar.IsEnabled = false;
+            //dtpFechaEntrada.SelectedDate = dtpFechaSalida.SelectedDate = DateTime.Now.Date;
+      
+            
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -64,12 +68,11 @@ namespace ClienteHotel
                         MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
                     {
                         cliente.Eliminar(r);
-                        txtClave.Text = txtFechaEntrada.Text =
-                    txtFechaSalida.Text = txtNombre.Text =
-                    txtNumeroPersonas.Text =
-                    cmbTipoHabitacion.Text = "";
-                        cliente.Get();
-                        Timer.Start();
+                    //    txtClave.Text = txtNombre.Text =
+                    //txtNumeroPersonas.Text =
+                    //cmbTipoHabitacion.Text = "";
+                        //cliente.Get();
+                        //Timer.Start();
                     }
                 }
                 catch (Exception ex)
@@ -90,15 +93,26 @@ namespace ClienteHotel
             try
             {
 
-                reservacion.ClaveReservacion = txtClave.Text;
-                reservacion.FechaEntrada = txtFechaEntrada.Text;
-                reservacion.FechaSalida = txtFechaSalida.Text;
-                reservacion.Nombre = txtNombre.Text;
-                reservacion.TipoHabitacion = cmbTipoHabitacion.Text;
-                reservacion.NumPersonas = txtNumeroPersonas.Text;
-                cliente.Editar(reservacion);
-                cliente.Get();
-                Timer.Start();
+                //reservacion.ClaveReservacion = txtClave.Text;
+                ////reservacion.FechaEntrada = dtpFechaEntrada.SelectedDate.ToString();
+                ////reservacion.FechaSalida = dtpFechaEntrada.SelectedDate;
+                //reservacion.Nombre = txtNombre.Text;
+                //reservacion.TipoHabitacion = cmbTipoHabitacion.Text;
+                //reservacion.NumPersonas = txtNumeroPersonas.Text;
+                //cliente.Editar(reservacion);
+                //cliente.Get();
+                //Timer.Start();
+                if(dtgListaReservaciones.SelectedIndex!=-1)
+                {
+                    EditarReservacionView vn = new EditarReservacionView();
+                    DatosReservacion datos = dtgListaReservaciones.SelectedItem as DatosReservacion;
+                    vn.DataContext = datos;
+                    vn.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una reservacion", "Atención", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             catch (Exception m)
             {
@@ -111,13 +125,12 @@ namespace ClienteHotel
         {
             try
             {
-                cliente.Agregar(reservacion2);
-                btnAgregar.IsEnabled = false;
-                txtClave.Text = txtFechaEntrada.Text = 
-                    txtFechaSalida.Text = txtNombre.Text = 
-                    txtNumeroPersonas.Text =
-                    cmbTipoHabitacion.Text = "";
-            }
+              
+                DatosReservacion nuevosdatos = new DatosReservacion();
+                AgregarReservacionView ad = new AgregarReservacionView();
+                ad.DataContext = nuevosdatos;
+                ad.ShowDialog();
+                }
             catch (Exception m)
             {
 
@@ -127,24 +140,26 @@ namespace ClienteHotel
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = reservacion2;
-            btnAgregar.IsEnabled = true;
+            //this.DataContext = reservacion;
+            //dtpFechaEntrada.SelectedDate = DateTime.Now.Date;
+            //dtpFechaSalida.SelectedDate = DateTime.Now.Date;
+            //btnAgregar.IsEnabled = true;
         }
 
         private void dtgListaReservaciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (dtgListaReservaciones.SelectedItem != null)
-            {
-                Timer.Stop();
-                reservacion = dtgListaReservaciones.SelectedItem as DatosReservacion;
-                txtClave.Text = reservacion.ClaveReservacion;
-                txtFechaEntrada.Text = reservacion.FechaEntrada;
-                txtFechaSalida.Text = reservacion.FechaSalida;
-                txtNombre.Text = reservacion.Nombre;
-                txtNumeroPersonas.Text = reservacion.NumPersonas;
-                cmbTipoHabitacion.Text = reservacion.TipoHabitacion;
+            //if (dtgListaReservaciones.SelectedItem != null)
+            //{
+            //    //Timer.Stop();
+            //    //reservacion = dtgListaReservaciones.SelectedItem as DatosReservacion;
+            //    //txtClave.Text = reservacion.ClaveReservacion;
+            //    //dtpFechaEntrada.SelectedDate = reservacion.FechaEntrada;
+            //    //dtpFechaSalida.SelectedDate = reservacion.FechaSalida;
+            //    //txtNombre.Text = reservacion.Nombre;
+            //    //txtNumeroPersonas.Text = reservacion.NumPersonas;
+            //    //cmbTipoHabitacion.Text = reservacion.TipoHabitacion;
 
-            }
+            //}
         }
     }
 }

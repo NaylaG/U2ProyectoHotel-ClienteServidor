@@ -23,6 +23,12 @@ namespace ClienteHotel
 
         public async void Agregar(DatosReservacion r)
         {
+
+            //if (r.FechaEntrada <= DateTime.Now.Date || r.FechaSalida <= DateTime.Now.Date)
+            //    throw new ArgumentException("No puede agregar una fecha posterior a la actual");
+            //if (r.FechaSalida <= r.FechaEntrada)
+            //    throw new ArgumentException("La fecha de salida no puede ser anterior a la de entrada");
+
             var json = JsonConvert.SerializeObject(r);
             var result = await cliente.PostAsync("/Hotel/Reservaciones", new StringContent(json, Encoding.UTF8, "application/json"));
             result.EnsureSuccessStatusCode();

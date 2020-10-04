@@ -10,8 +10,8 @@ namespace ClienteHotel
     {
 public string ClaveReservacion { get; set; }
     public string Nombre { get; set; }
-    public string FechaEntrada { get; set; }
-    public string FechaSalida { get; set; }
+    public DateTime FechaEntrada { get; set; }
+    public DateTime FechaSalida { get; set; }
     public string TipoHabitacion { get; set; }
     public string NumPersonas { get; set; }
     }
