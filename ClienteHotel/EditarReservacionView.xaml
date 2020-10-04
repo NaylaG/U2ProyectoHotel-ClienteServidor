@@ -5,62 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteHotel"
         mc:Ignorable="d"
-        Title="EditarReservacionView" Height="450" Width="500" Background="Green">
-    <StackPanel>
-        <Grid>
-            <Grid.Resources>
-                <Style TargetType="TextBlock">
-                    <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
+        Title="EditarReservacionView" Height="550" Width="450" Background="Green">
+   
+        
+        <!--<Button Name="btnEditar" Click="btnEditar_Click">EDITAR</Button>-->
+    <DockPanel Background="#FFFFDFC5">
+        <WrapPanel Background="#FF340303" DockPanel.Dock="Top">
+            <Image   Source="images/logo.png" Height="60" Margin="5"></Image>
+            <TextBlock VerticalAlignment="Center" FontSize="20" Margin="5,30" TextAlignment="Center" FontWeight="Light" Foreground="White" FontFamily="Arial">EDITAR RESERVACION</TextBlock>
+        </WrapPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Bottom">
+            <Button  Name="btnEditar" Click="btnEditar_Click" Margin="50,20" Background="#C55E5E" Foreground="White" Height="30" Width="100">EDITAR</Button>
+        </StackPanel>
 
-                    <Setter Property="Padding" Value="0,0,0,0"></Setter>
-                    <Setter Property="FontSize" Value="18"></Setter>
+        <StackPanel  Margin="40,20">
+            <StackPanel.Resources>
+                <Style TargetType="Border">
                     <Setter Property="Background" Value="White"></Setter>
-                    <Setter Property="Width" Value="80"></Setter>
-                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                    <Setter Property="Opacity" Value=".7"></Setter>
-                    <Setter Property="TextAlignment" Value="Center"></Setter>
                 </Style>
-                <Style TargetType="TextBox">
-                    <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
-                    <Setter Property="Margin" Value="0,0,0,5"></Setter>
-                    <Setter Property="Height" Value="20"></Setter>
-                </Style>
-            </Grid.Resources>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <TextBlock>Clave de reservación:</TextBlock>
-            <TextBox Grid.Column="1" x:Name="txtClave" Text="{Binding ClaveReservacion}"></TextBox>
-            <TextBlock Grid.Row="1">Nombre:</TextBlock>
-            <TextBox Grid.Column="1"  Grid.Row="1"  x:Name="txtNombre" Text="{Binding Nombre}"></TextBox>
-            <TextBlock Grid.Row="2">Fecha de entrada:</TextBlock>
-            <!--<TextBox Grid.Column="1"  Grid.Row="2"  x:Name="txtFechaEntrada" Text="{Binding FechaEntrada}"></TextBox>-->
-            <DatePicker Grid.Column="1"  Grid.Row="2"  x:Name="dtpFechaEntrada" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker>
+            </StackPanel.Resources>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0">Clave</TextBlock>
+                    <TextBox Padding="3"  FontSize="12" BorderThickness="0" x:Name="txtClave" Text="{Binding ClaveReservacion}"></TextBox >
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0">Nombre</TextBlock>
+                    <TextBox Padding="3" FontSize="12"  BorderThickness="0" x:Name="txtNombre" Text="{Binding Nombre}" ></TextBox >
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0">Fecha de Entrada</TextBlock>
+                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaEntrada" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker >
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0">Fecha de Salida</TextBlock>
+                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaSalida" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker >
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,5">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0" >Tipo de habitación</TextBlock>
+                    <ComboBox Padding="3" FontSize="12" BorderThickness="0" x:Name="cmbTipoHabitacion" Text="{Binding TipoHabitacion}" >
+                        <ComboBoxItem>SENCILLA</ComboBoxItem>
+                        <ComboBoxItem>DOBLE</ComboBoxItem>
+                        <ComboBoxItem>TRIPLE</ComboBoxItem>
+                        <ComboBoxItem>PRESIDENCIAL</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+            <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,5">
+                <StackPanel>
+                    <TextBlock Foreground="Gray" Padding="3,0" >Numero de personas</TextBlock>
+                    <TextBox Padding="3"  FontSize="12" BorderThickness="0" x:Name="txtNumeroPersonas" Text="{Binding NumPersonas}"></TextBox >
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </DockPanel>
 
-            <TextBlock Grid.Row="3">Fecha salida:</TextBlock>
-            <!--<TextBox Grid.Column="1"  Grid.Row="3"  x:Name="txtFechaSalida" Text="{Binding FechaSalida}"></TextBox>-->
-            <DatePicker Grid.Column="1"  Grid.Row="3" x:Name="dtpFechaSalida" SelectedDate="{Binding FechaSalida, StringFormat=\{0:d\}}"></DatePicker>
-
-            <TextBlock Grid.Row="4">Tipo habitación:</TextBlock>
-            <ComboBox Grid.Column="1"  Grid.Row="4"  x:Name="cmbTipoHabitacion" Text="{Binding TipoHabitacion}">
-                <ComboBoxItem>SENCILLA</ComboBoxItem>
-                <ComboBoxItem>DOBLE</ComboBoxItem>
-                <ComboBoxItem>TRIPLE</ComboBoxItem>
-                <ComboBoxItem>PRESIDENCIAL</ComboBoxItem>
-
-            </ComboBox>
-            <TextBlock Grid.Row="5">Número de personas:</TextBlock>
-            <TextBox Grid.Column="1"  Grid.Row="5"  x:Name="txtNumeroPersonas" Text="{Binding NumPersonas}"></TextBox>
-        </Grid>
-        <Button Name="btnEditar" Click="btnEditar_Click">EDITAR</Button>
-    </StackPanel>
 </Window>

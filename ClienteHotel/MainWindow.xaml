@@ -5,97 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClienteHotel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <StackPanel>
+        Title="MainWindow" Height="600" Width="950">
+    <Window.Resources>
+        <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
+            <Setter Property="ColumnHeaderStyle" Value="{DynamicResource ColumnHeaderStyle1}"/>
+        </Style>
 
-        <WrapPanel Background="White" DockPanel.Dock="Top">
-            <!--<Image Margin="80,20,0,30"  Source="images/vivaaerobus.png" Width="80"></Image>-->
-            <TextBlock Margin="80,20,0,30" FontSize="25" TextAlignment="Center" FontFamily="Dubai Medium">Reservaciones Hotel RedRoof</TextBlock>
+        <Style x:Key="ColumnHeaderStyle1" TargetType="DataGridColumnHeader">
+
+            <Setter Property="Background" Value="#C55E5E"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="Arial"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="ToolTip" Value="Click to sort."/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <DockPanel Background="#FFFFDFC5">
+
+        <WrapPanel Background="#FF340303" DockPanel.Dock="Top">
+            <Image   Source="images/logo.png" Height="70" Margin="10,10,20,10"></Image>
+            <TextBlock VerticalAlignment="Center" FontSize="20" Margin="5,40" TextAlignment="Center" FontWeight="Light" Foreground="White" FontFamily="Arial">RESERVACIONES</TextBlock>
         </WrapPanel>
+
         
-            <!--<Grid>
-                <Grid.Resources>
-                    <Style TargetType="TextBlock">
-                        <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
-                        
-                        <Setter Property="Padding" Value="0,0,0,0"></Setter>
-                        <Setter Property="FontSize" Value="18"></Setter>
-                        <Setter Property="Background" Value="White"></Setter>
-                        <Setter Property="Width" Value="80"></Setter>
-                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                        <Setter Property="Opacity" Value=".7"></Setter>
-                        <Setter Property="TextAlignment" Value="Center"></Setter>
-                    </Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
-                        <Setter Property="Margin" Value="0,0,0,5"></Setter>
-                        <Setter Property="Height" Value="20"></Setter>
-                    </Style>
-                </Grid.Resources>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <TextBlock>Clave de reservación:</TextBlock>
-                <TextBox Grid.Column="1" x:Name="txtClave" Text="{Binding ClaveReservacion}"></TextBox>
-                <TextBlock Grid.Row="1">Nombre:</TextBlock>
-                <TextBox Grid.Column="1"  Grid.Row="1"  x:Name="txtNombre" Text="{Binding Nombre}"></TextBox>
-                <TextBlock Grid.Row="2">Fecha de entrada:</TextBlock>
-                --><!--<TextBox Grid.Column="1"  Grid.Row="2"  x:Name="txtFechaEntrada" Text="{Binding FechaEntrada}"></TextBox>--><!--
-                <DatePicker Grid.Column="1"  Grid.Row="2"  x:Name="dtpFechaEntrada" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker>
-               
-                <TextBlock Grid.Row="3">Fecha salida:</TextBlock>
-                --><!--<TextBox Grid.Column="1"  Grid.Row="3"  x:Name="txtFechaSalida" Text="{Binding FechaSalida}"></TextBox>--><!--
-                <DatePicker Grid.Column="1"  Grid.Row="3" x:Name="dtpFechaSalida" SelectedDate="{Binding FechaSalida, StringFormat=\{0:d\}}"></DatePicker>
-                
-                <TextBlock Grid.Row="4">Tipo habitación:</TextBlock>
-                <ComboBox Grid.Column="1"  Grid.Row="4"  x:Name="cmbTipoHabitacion" Text="{Binding TipoHabitacion}">
-                    <ComboBoxItem>SENCILLA</ComboBoxItem>
-                    <ComboBoxItem>DOBLE</ComboBoxItem>
-                    <ComboBoxItem>TRIPLE</ComboBoxItem>
-                    <ComboBoxItem>PRESIDENCIAL</ComboBoxItem>
-                   
-                </ComboBox>
-                <TextBlock Grid.Row="5">Número de personas:</TextBlock>
-                <TextBox Grid.Column="1"  Grid.Row="5"  x:Name="txtNumeroPersonas" Text="{Binding NumPersonas}"></TextBox>
-            </Grid>-->
-            <DataGrid Margin="0,30,0,0" IsReadOnly="True" AutoGenerateColumns="False"   Name="dtgListaReservaciones" SelectionChanged="dtgListaReservaciones_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Clave" Binding="{Binding ClaveReservacion}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Nombre"   Binding="{Binding Nombre}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Fecha de entrada"  Binding="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Fecha de salida"   Binding="{Binding FechaSalida, StringFormat=\{0:d\}}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Tipo de habitación"   Binding="{Binding TipoHabitacion}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Numer de personas"   Binding="{Binding NumPersonas}"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-    
-        <WrapPanel HorizontalAlignment="Center" Margin="10">
-            <WrapPanel.Resources>
+        <StackPanel HorizontalAlignment="Center" Background="LightGray">
+            <StackPanel.Resources>
                 <Style TargetType="Button">
 
-                    <Setter Property="BorderBrush" Value="Black"></Setter>
+                    <Setter Property="BorderBrush" Value="Gray"></Setter>
                     <Setter Property="Background" Value="White"></Setter>
-                    <Setter Property="BorderThickness" Value="2"></Setter>
+                    <Setter Property="BorderThickness" Value="1"></Setter>
                     <Setter Property="FontFamily" Value="Dubai Medium"></Setter>
-                    <Setter Property="Width" Value="100"></Setter>
-                    <Setter Property="Margin" Value="10,0,0,0"></Setter>
+                    <Setter Property="Width" Value="150"></Setter>
+                    <!--<Setter Property="Margin" Value="10,0,0,0"></Setter>-->
                 </Style>
-            </WrapPanel.Resources>
+            </StackPanel.Resources>
             <!--<Button x:Name="btnNuevo" Click="btnNuevo_Click">Nuevo</Button>-->
             <Button x:Name="btnAgregar" Click="btnAgregar_Click" >Agregar</Button>
             <Button x:Name="btnEditar" Click="btnEditar_Click">Editar</Button>
             <Button Name="btnEliminar" Click="btnEliminar_Click">Eliminar</Button>
-        </WrapPanel>
+        </StackPanel>
+        <DataGrid Name="dtgListaReservaciones"  Background="White" AlternatingRowBackground="#FFF5F4F0"  Style="{DynamicResource DataGridStyle1}" 
+                          RowBackground="White" AutoGenerateColumns="False"  CanUserAddRows="False" ColumnHeaderHeight="30"  CanUserReorderColumns="False"
+                          CanUserResizeColumns="False" CanUserResizeRows="False" IsReadOnly="True"  Margin="20">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Clave" Binding="{Binding ClaveReservacion}" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nombre"   Binding="{Binding Nombre}" Width="180"></DataGridTextColumn>
+                <DataGridTextColumn Header="Fecha de entrada"  Binding="{Binding FechaEntrada, StringFormat=\{0:d\}}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn Header="Fecha de salida"   Binding="{Binding FechaSalida, StringFormat=\{0:d\}}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn Header="Tipo de habitación"   Binding="{Binding TipoHabitacion}" Width="120"></DataGridTextColumn>
+                <DataGridTextColumn Header="Numer de personas"   Binding="{Binding NumPersonas}" Width="125"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
 
-    </StackPanel>
+    </DockPanel>
 </Window>

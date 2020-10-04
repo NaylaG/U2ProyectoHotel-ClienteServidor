@@ -35,10 +35,7 @@ namespace ClienteHotel
             Timer = new DispatcherTimer();
             Timer.Interval = new TimeSpan(0, 0, 5);
             Timer.Tick += Timer_Tick;
-            Timer.Start();
-            //btnAgregar.IsEnabled = false;
-            //dtpFechaEntrada.SelectedDate = dtpFechaSalida.SelectedDate = DateTime.Now.Date;
-      
+            Timer.Start();        
             
         }
 
@@ -64,7 +61,7 @@ namespace ClienteHotel
                 {
                     DatosReservacion r = new DatosReservacion();
                     r = dtgListaReservaciones.SelectedItem as DatosReservacion;
-                    if (MessageBox.Show($"La reservación {r.ClaveReservacion} está a punto de ser eliminada. ¿Desea continuar?", "Atencion",
+                    if (MessageBox.Show($"La reservación del huseped {r.Nombre} está a punto de ser eliminada. ¿Desea continuar?", "Atencion",
                         MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
                     {
                         cliente.Eliminar(r);
