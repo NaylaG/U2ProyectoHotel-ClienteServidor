@@ -8,6 +8,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace servidor_hotel
 {
@@ -18,6 +19,14 @@ namespace servidor_hotel
 
         public void Agregar(Huesped h)
         {
+
+            //if (h.TipoHabitacion != "SENCILLA" || h.TipoHabitacion != "DOBLE" || h.TipoHabitacion != "TRIPLE" || h.TipoHabitacion != "PRESIDENCIAL")
+            //    h.TipoHabitacion = "";
+            
+            //if (h.FechaEntrada <= DateTime.Now.Date || h.FechaSalida <= DateTime.Now.Date)
+            //    throw new ArgumentException("No puede agregar una fecha posterior a la actual");
+            //if (h.FechaSalida <= h.FechaEntrada)
+            //    throw new ArgumentException("La fecha de salida no puede ser anterior a la de entrada");
             Huespedes.Add(h);
             Guardar();
         }

@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:servidor_hotel"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <DataGrid ItemsSource="{Binding Huespedes.Huespedes}">
-        
+
+    <DataGrid ItemsSource="{Binding Huespedes.Huespedes}" IsReadOnly="True" AutoGenerateColumns="False"  >
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Clave" Binding="{Binding ClaveReservacion}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Nombre"   Binding="{Binding Nombre}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Fecha de entrada"  Binding="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Fecha de salida"   Binding="{Binding FechaSalida, StringFormat=\{0:d\}}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Tipo de habitación"   Binding="{Binding TipoHabitacion}"></DataGridTextColumn>
+            <DataGridTextColumn Header="Numer de personas"   Binding="{Binding NumPersonas}"></DataGridTextColumn>
+        </DataGrid.Columns>
     </DataGrid>
+
 </Window>

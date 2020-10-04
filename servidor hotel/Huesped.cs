@@ -31,9 +31,9 @@ namespace servidor_hotel
             }
         }
 
-        private string fechaEntrada;
+        private DateTime fechaEntrada;
 
-        public string FechaEntrada
+        public DateTime FechaEntrada
         {
             get { return fechaEntrada; }
             set { fechaEntrada = value;
@@ -42,9 +42,9 @@ namespace servidor_hotel
         }
 
 
-        private string fechaSalida;
+        private DateTime fechaSalida;
 
-        public string FechaSalida
+        public DateTime FechaSalida
         {
             get { return fechaSalida; }
             set { fechaSalida = value;
