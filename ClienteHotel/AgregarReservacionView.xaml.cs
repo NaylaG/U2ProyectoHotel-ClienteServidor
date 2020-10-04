@@ -22,7 +22,7 @@ namespace ClienteHotel
         public AgregarReservacionView()
         {
             InitializeComponent();
-            dtpFechaEntrada.SelectedDate = dtpFechaSalida.SelectedDate= DateTime.Now.Date;
+                                
         }
         HotelCliente cliente = new HotelCliente();
         private void btnAgregar_Click(object sender, RoutedEventArgs e)

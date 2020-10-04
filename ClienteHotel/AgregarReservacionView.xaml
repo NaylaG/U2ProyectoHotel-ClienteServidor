@@ -36,13 +36,13 @@
             <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
                 <StackPanel>
                     <TextBlock Foreground="Gray" Padding="3,0">Fecha de Entrada</TextBlock>
-                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaEntrada" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker >
+                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaEntrada" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\} , Mode=TwoWay}" ></DatePicker >
                 </StackPanel>
             </Border>
             <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,15">
                 <StackPanel>
                     <TextBlock Foreground="Gray" Padding="3,0">Fecha de Salida</TextBlock>
-                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaSalida" SelectedDate="{Binding FechaEntrada, StringFormat=\{0:d\}}"></DatePicker >
+                    <DatePicker Padding="3"  FontSize="12" BorderThickness="0" x:Name="dtpFechaSalida" SelectedDate="{Binding FechaSalida, StringFormat=\{0:d\} , Mode=TwoWay}"></DatePicker >
                 </StackPanel>
             </Border>
             <Border BorderThickness="1" BorderBrush="Gray"  Margin="0, 0, 0 ,5">
